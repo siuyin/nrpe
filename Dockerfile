@@ -2,7 +2,7 @@ FROM fedora:22
 RUN dnf update -y 
 ENV container docker
 
-RUN dnf install -y -q systemd perl-Params-Validate perl-Nagios-Plugin nrpe nagios-plugins nagios-plugins-all;  \
+RUN dnf install -y -q systemd perl-Params-Validate perl-Nagios-Plugin nrpe nagios-plugins nagios-plugins-all uptimed;  \
   (cd /lib/systemd/system/sysinit.target.wants/; for i in *; do [ $i == systemd-tmpfiles-setup.service ] || rm -f $i; done); \
   rm -f /lib/systemd/system/multi-user.target.wants/*;\
   rm -f /etc/systemd/system/*.wants/*;\
