@@ -6,7 +6,7 @@ TimeoutStartSec=180s
 ExecStartPre=-/usr/bin/docker kill nrpe
 ExecStartPre=-/usr/bin/docker rm nrpe
 ExecStartPre=-/usr/bin/docker pull siuyin/nrpe
-ExecStart=/usr/bin/docker run --privileged -p 5666:5666 --name nrpe siuyin/nrpe
+ExecStart=/usr/bin/docker run --privileged -p 5666:5666 -v /opt/nrpe/etc/conf.d:/etc/nrpe.d --name nrpe siuyin/nrpe
 ExecStop=/usr/bin/docker kill nrpe
 
 [X-Fleet]
